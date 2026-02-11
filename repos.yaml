@@ -7,3 +7,4 @@
 
 repositories:
   - https://github.com/ShaunPCcom/ESP32-H2-LD2450
+  - https://github.com/ShaunPCcom/zigbee-LED-ESP32-controller
