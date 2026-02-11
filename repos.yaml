@@ -1,0 +1,9 @@
+# Device Repository Configuration
+#
+# List of Zigbee device repositories to monitor for OTA updates.
+# Each repo must have a z2m/ota_index.json file in its default branch.
+#
+# Add your own device repos here to include them in the combined OTA index.
+
+repositories:
+  - https://github.com/ShaunPCcom/ESP32-H2-LD2450
