@@ -11,8 +11,8 @@ build/
 dist/
 *.egg-info/
 
-# Generated files
-ota_index.json
+# Generated files (commented out - we want this published to gh-pages)
+# ota_index.json
 
 # IDE
 .vscode/
