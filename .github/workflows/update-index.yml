@@ -38,28 +38,41 @@ jobs:
         run: |
           python3 update_index.py repos.yaml ota_index.json
 
-      - name: Display generated index
+      - name: Display generated indexes
         run: |
-          echo "Generated OTA index:"
+          echo "=== Stable OTA index ==="
           cat ota_index.json
+          if [ -f ota_index_beta.json ]; then
+            echo ""
+            echo "=== Beta OTA index ==="
+            cat ota_index_beta.json
+          fi
+
+      - name: Prepare publish directory
+        run: |
+          mkdir -p publish
+          cp ota_index.json publish/
+          if [ -f ota_index_beta.json ]; then
+            cp ota_index_beta.json publish/
+          fi
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: .
+          publish_dir: ./publish
           publish_branch: gh-pages
           keep_files: false
           enable_jekyll: false
-          commit_message: "chore: update OTA index from configured repositories"
+          commit_message: "chore: update OTA indexes from configured repositories"
           user_name: 'github-actions[bot]'
           user_email: 'github-actions[bot]@users.noreply.github.com'
-          # Only publish ota_index.json to gh-pages
-          destination_dir: .
 
       - name: Summary
         run: |
-          echo "✓ OTA index updated and deployed to GitHub Pages"
+          echo "✓ OTA indexes updated and deployed to GitHub Pages"
           echo ""
-          echo "Access the index at:"
-          echo "https://${{ github.repository_owner }}.github.io/zigbee-ota-index/ota_index.json"
+          echo "Stable: https://${{ github.repository_owner }}.github.io/zigbee-ota-index/ota_index.json"
+          if [ -f ota_index_beta.json ]; then
+            echo "Beta:   https://${{ github.repository_owner }}.github.io/zigbee-ota-index/ota_index_beta.json"
+          fi

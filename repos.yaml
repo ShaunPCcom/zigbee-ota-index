@@ -3,8 +3,10 @@
 # List of Zigbee device repositories to monitor for OTA updates.
 # Each repo must have a z2m/ota_index.json file in its default branch.
 #
-# Add your own device repos here to include them in the combined OTA index.
+# Optional: set beta_branch to also fetch beta/dev firmware for that repo.
+# Beta entries are included in ota_index_beta.json but not ota_index.json.
 
 repositories:
-  - https://github.com/ShaunPCcom/ESP32-H2-LD2450
-  - https://github.com/ShaunPCcom/zigbee-LED-ESP32-controller
+  - url: https://github.com/ShaunPCcom/ESP32-H2-LD2450
+    beta_branch: dev
+  - url: https://github.com/ShaunPCcom/zigbee-LED-ESP32-controller
