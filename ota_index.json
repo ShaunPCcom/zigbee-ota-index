@@ -1,6 +1,12 @@
 [
   {
     "manufacturerCode": 4891,
+    "imageType": 1,
+    "fileVersion": 131329,
+    "url": "https://github.com/ShaunPCcom/ESP32-H2-LD2450/releases/download/v2.1.1/ld2450_zb_h2_v2.1.1.ota"
+  },
+  {
+    "manufacturerCode": 4891,
     "imageType": 2,
     "fileVersion": 66817,
     "url": "https://github.com/ShaunPCcom/zigbee-LED-ESP32-controller/releases/download/v1.5.1/zb_led_controller_v1.5.1.ota"
